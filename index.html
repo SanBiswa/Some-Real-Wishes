@@ -217,11 +217,13 @@
       to { opacity: 1; transform: translateY(0);}
     }
     .wish {
+      font-style: italic;
       color: var(--accent2);
       background: rgba(179,157,219,0.13);
       border-left: 4px solid var(--accent2);
     }
     .pickup {
+      font-style: italic;
       color: var(--accent1);
       background: rgba(244,143,177,0.10);
       border-left: 4px solid var(--accent1);
@@ -351,8 +353,9 @@
 <body>
   <!-- Overlay for user interaction -->
   <div class="start-overlay" id="start-overlay">
-    <div>🎶 Click or Tap Anywhere to Start the Magic! 🎶</div>
-    <button class="start-btn">Start</button>
+    <div>🎶 Navya, is your smile😊 a link? Beacause I just want to 🎶</div>
+    <button class="start-btn">Click👆</button>
+    <div>🎶 on it all day!😉 🎶</div>
   </div>
   <canvas class="confetti-bg"></canvas>
   <!-- Balloons SVGs -->
@@ -392,42 +395,44 @@
     <!-- Block 1: Image Left, Text Right -->
     <div class="block">
       <div class="img-container">
-        <img src="Photo1.jpg" alt="Hi Biswa..." onclick="showPopup('Hi Biswa...')">
+        <img src="Photo1.jpg" alt="Hi Navya...😉" onclick="showPopup('Hi Navya...😉')">
       </div>
       <div class="glass-card">
-        <div class="wish">Wishing you a day as beautiful as your smile, Biswa!</div>
-        <div class="pickup">If I could rearrange the alphabet, I’d put U and I together.</div>
+        <div class="wish">Wishing you a day as beautiful as your smile😊, Navya!</div>
+        <div class="pickup">If I could rearrange the alphabet, I’d put U and I together😉.</div>
       </div>
     </div>
     <!-- Block 2: Image Right, Text Left -->
     <div class="block reverse">
       <div class="img-container">
-        <img src="Photo2.png" alt="Happy Birthday Biswa" onclick="showPopup('Happy Birthday Biswa')">
+        <img src="Photo2.png" alt="Wishing you a truly wonderful birthday, Navya...😊" onclick="showPopup('Wishing you a truly wonderful birthday, Navya...😊')">
       </div>
       <div class="glass-card">
-        <div class="pickup">Are you a magician? Because whenever I look at you, everyone else disappears.</div>
-        <div class="wish">May your birthday be filled with laughter, love, and endless joy!</div>
+        <div class="pickup">Are you a magician🪄? Because whenever I look at you🙂, everyone else disappears🫣.</div>
+        <div class="wish">May your birthday🥳 be filled with laughter, love, and endless joy🤞🏻!</div>
       </div>
     </div>
     <!-- Block 3: Image Left, Text Right -->
     <div class="block">
       <div class="img-container">
-        <img src="Photo3.jpg" alt="Aur batao, kesi kat rehi hai jindegi mere bina" onclick="showPopup('Aur batao, kesi kat rehi hai jindegi mere bina')">
+        <img src="Photo3.jpg" alt="Aur batao😉, kesi kat rehi hai jindegi mere bina😆" onclick="showPopup('Aur batao😉, kesi kat rehi hai jindegi mere bina😆')">
       </div>
       <div class="glass-card">
-        <div class="wish">Hope this year brings you wonderful adventures and cherished memories.</div>
-        <div class="pickup">Do you have a map? I keep getting lost in your eyes.</div>
+        <div class="wish">Hope this year brings you wonderful😄 adventures and cherished memories📝.</div>
+        <div class="pickup">Do you have a map🗺️? I keep getting lost in your eyes👁️.</div>
       </div>
     </div>
     <!-- Block 4: Image Right, Text Left -->
     <div class="block reverse">
       <div class="img-container">
-        <img src="Photo4.png" alt="Happy Birthday Biswa" style="opacity:0.7;pointer-events:none;">
+        <img src="Photo4.png" alt="Its your life Navya😊, enjoy it the way you want😄, live it in your full phase...🥳" 
+          onclick="showPopup('Its your life Navya😊, enjoy it the way you want😄, live it in your full phase...🥳')"
+          style="opacity:0.7;pointer-events:none;">
       </div>
       <div class="
 glass-card">
-        <div class="pickup">Is your name Google? Because you have everything I’ve been searching for.</div>
-        <div class="wish">You’re truly one of a kind, and I’m lucky to know you!</div>
+        <div class="pickup">Is your name Google🤔? Because you have everything I’ve been searching for🔍.</div>
+        <div class="wish">You’re truly one of a kind, and I’m lucky to know you! Again Happy Birthday Navya🎈🎉🥳</div>
       </div>
     </div>
   </div>
@@ -440,7 +445,7 @@ glass-card">
   </div>
   <!-- Background Music -->
   <audio id="bg-music" loop>
-    <source src="jine_ka_tu_sahara.mp3" type="audio/mpeg">
+    <source src="tere aas paas din sara.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
   <script>
