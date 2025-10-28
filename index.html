@@ -504,6 +504,7 @@ glass-card">
     }
     // Overlay click to start music and hide overlay
     function startExperience() {
+      window.scrollTo(0, 0);
       playMusic();
       overlay.classList.add('hide');
       setTimeout(() => overlay.style.display = 'none', 600);
