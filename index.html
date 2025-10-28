@@ -307,6 +307,7 @@
       pointer-events: none;
     }
     .start-btn {
+      position: relative;
       margin-top: 30px;
       background: linear-gradient(90deg, #f8bbd0 0%, #b2ebf2 100%);
       color: #3d155f;
@@ -318,6 +319,31 @@
       cursor: pointer;
       box-shadow: 0 4px 24px rgba(233,30,99,0.08);
       transition: background 0.3s, color 0.3s;
+    }
+    .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      width: max-content;
+      background: #b39ddb;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 8px 16px;
+      position: absolute;
+      left: 50%;
+      top: -50px;
+      transform: translateX(-50%);
+      z-index: 10;
+      font-size: 1em;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(80,0,80,0.13);
+      transition: opacity 0.3s, visibility 0.3s;
+      pointer-events: none;
+    }
+    .start-btn:hover .tooltip,
+    .start-btn:focus .tooltip {
+      visibility: visible;
+      opacity: 1;
     }
     .start-btn:hover {
       background: #b39ddb;
@@ -356,7 +382,10 @@
     <div>🎶 Navya, is your smile😊 a link? 🎶</div>
     <br><br>
     <div style="iteam-align:center">🎶 Beacause I just want to 🎶</div>
-    <button class="start-btn" alt="Tips: Click on all of your images...">Click👆</button>
+    <button class="start-btn">
+      Click👆
+      <span class="tooltip">Tips: Click on all of your images...</span>
+    </button>
     <div>🎶 on it all day!😉 🎶</div>
   </div>
   <canvas class="confetti-bg"></canvas>
