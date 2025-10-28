@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Biswa!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(120deg, #f8fafc 0%, #e1bee7 100%);
+      --glass-bg: rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.25);
+      --accent1:
+ #f48fb1;
+      --accent2: #b39ddb;
+      --accent3: #80deea;
+      --text-main: #3d155f;
+      --text-sub: #ad1457;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: var(--main-bg);
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+    .confetti-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .balloon-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible;
+    }
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 120px;
+      opacity: 0.7;
+      animation: floatBalloon 6s ease-in-out infinite;
+    }
+    .balloon.b1 { left: 8vw; top: 12vh; animation-delay: 0s;}
+    .balloon.b2 { left: 80vw; top: 18vh; animation-delay: 2s;}
+    .balloon.b3 { left: 40vw; top: 8vh; animation-delay: 1s;}
+    .balloon.b4 { left: 60vw; top: 22vh; animation-delay: 3s;}
+    @keyframes floatBalloon {
+      0% { transform: translateY(0);}
+      50% { transform: translateY(-30px);}
+      100% { transform: translateY(0);}
+    }
+    .header {
+      width: 100vw;
+      text-align: center;
+      padding: 48px 0 24px 0;
+      background: linear-gradient(90deg, #f8bbd0 0%, #b2ebf2 100%);
+      font-size: 2.5em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      box-shadow: 0 4px 24px rgba(233,30,99,0.08);
+      position: relative;
+      z-index: 2;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      user-select: none;
+      animation: pulseHeader 2.5s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+    @keyframes pulseHeader {
+      0% { box-shadow: 0 4px 24px rgba(233,30,99,0.08);}
+      50% { box-shadow: 0 8px 48px rgba(233,30,99,0.18);}
+      100% { box-shadow: 0 4px 24px rgba(233,30,99,0.08);}
+    }
+    .music-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #b39ddb 60%, #f48fb1 100%);
+      box-shadow: 0 2px 12px rgba(80,0,80,0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      outline: none;
+     
+ margin-left: 12px;
+      position: relative;
+      transition: box-shadow 0.3s;
+    }
+    .music-btn.playing {
+      box-shadow: 0 0 24px 6px #f48fb1, 0 2px 12px rgba(80,0,80,0.13);
+      animation: glowMusic 1.5s infinite;
+    }
+    @keyframes glowMusic {
+      0% { box-shadow: 0 0 24px 6px #f48fb1, 0 2px 12px rgba(80,0,80,0.13);}
+      50% { box-shadow: 0 0 36px 12px #b39ddb, 0 2px 12px rgba(80,0,80,0.13);}
+      100% { box-shadow: 0 0 24px 6px #f48fb1, 0 2px 12px rgba(80,0,80,0.13);}
+    }
+    .music-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: #fff;
+      transition: fill 0.3s;
+    }
+    .main-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 0 64px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px 0;
+      gap: 0;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 1s cubic-bezier(.77,0,.18,1), transform 1s cubic-bezier(.77,0,.18,1);
+    }
+    .block.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .block.reverse {
+      flex-direction: row-reverse;
+    }
+    .glass-card {
+      background: var(--glass-bg);
+      border: 1.5px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(80,0,80,0.10);
+      border-radius: 24px;
+      padding: 32px 36px;
+      margin: 0 2vw;
+      min-width: 320px;
+      max-width: 420px;
+      backdrop-filter: blur(8px);
+      transition: box-shadow 0.3s, transform 0.3s;
+      position: relative;
+      z-index: 2;
+      animation: fadeInCard 1.2s;
+    }
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: scale(0.95);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .glass-card:hover {
+      box-shadow: 0 16px 48px rgba(233,30,99,0.18);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .img-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 260px;
+      min-height: 260px;
+      padding: 0 2vw;
+      z-index: 2;
+    }
+    .img-container img {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 4px 24px rgba(80,0,80,0.13);
+      cursor: pointer;
+      border: 3px solid #fff;
+      transition: transform 0.3s cubic-bezier(.77,0,.18,1), box-shadow 0.3s;
+      background: #fff;
+      animation:
+ fadeInImg 1.2s;
+    }
+    @keyframes fadeInImg {
+      from { opacity: 0; transform: scale(0.95);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .img-container img:hover {
+      transform: scale(1.12) rotate(-2deg);
+      box-shadow: 0 12px 48px rgba(244,143,177,0.18);
+      border-color: var(--accent1);
+      animation: bounceImg 0.5s;
+    }
+    @keyframes bounceImg {
+      0% { transform: scale(1.12) rotate(-2deg);}
+      30% { transform: scale(1.18) rotate(-2deg);}
+      60% { transform: scale(1.08) rotate(-2deg);}
+      100% { transform: scale(1.12) rotate(-2deg);}
+    }
+    .wish, .pickup {
+      font-size: 1.18em;
+      margin: 18px 0;
+      padding: 16px 22px;
+      border-radius: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: background 0.3s;
+      line-height: 1.5;
+      animation: fadeInText 1.2s;
+    }
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .wish {
+      color: var(--accent2);
+      background: rgba(179,157,219,0.13);
+      border-left: 4px solid var(--accent2);
+    }
+    .pickup {
+      color: var(--accent1);
+      background: rgba(244,143,177,0.10);
+      border-left: 4px solid var(--accent1);
+    }
+    /* Popup styles */
+    .popup-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(60,0,80,0.18);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: fadeInBg 0.4s;
+    }
+    .popup-bg.active {
+      display: flex;
+    }
+    @keyframes fadeInBg {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .popup {
+      background: linear-gradient(120deg, #fff 60%, #f3e5f5 100%);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 36px 32px;
+      min-width: 260px;
+      max-width: 90vw;
+      text-align: center;
+      position: relative;
+      animation: popupIn 0.5s cubic-bezier(.77,0,.18,1);
+    }
+    @keyframes popupIn {
+      from { opacity: 0; transform: scale(0.7);}
+      60% { opacity: 1; transform: scale(1.08);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .popup-text {
+      font-size: 1.3em;
+      color: var(--text-sub);
+      margin-bottom: 18px;
+      font-weight: 600;
+      animation: fadeInText 0.7s;
+    }
+    .close-btn {
+      position: absolute;
+      top: 12px; right: 18px;
+      background: var(--accent1);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 2px
+ 8px rgba(0,0,0,0.12);
+      transition: background 0.2s;
+    }
+    .close-btn:hover {
+      background: var(--accent2);
+    }
+    /* Overlay for autoplay */
+    .start-overlay {
+      position: fixed;
+      z-index: 2000;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: linear-gradient(120deg, #f8fafc 0%, #e1bee7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #ad1457;
+      font-size: 2em;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.5s;
+    }
+    .start-overlay.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .start-btn {
+      margin-top: 30px;
+      background: linear-gradient(90deg, #f8bbd0 0%, #b2ebf2 100%);
+      color: #3d155f;
+      border: none;
+      border-radius: 30px;
+      padding: 18px 40px;
+      font-size: 1.2em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(233,30,99,0.08);
+      transition: background 0.3s, color 0.3s;
+    }
+    .start-btn:hover {
+      background: #b39ddb;
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .block, .block.reverse {
+        flex-direction: column !important;
+        min-height: 0;
+        padding: 18px 0;
+      }
+      .img-container, .glass-card {
+        min-width: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0 0 18px 0;
+      }
+      .glass-card {
+        max-width: 95vw;
+        padding: 24px 10vw;
+      }
+      .img-container img {
+        width: 90vw;
+        height: 45vw;
+        min-width: 180px;
+        min-height: 120px;
+        max-width: 350px;
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay for user interaction -->
+  <div class="start-overlay" id="start-overlay">
+    <div>🎶 Click or Tap Anywhere to Start the Magic! 🎶</div>
+    <button class="start-btn">Start</button>
+  </div>
+  <canvas class="confetti-bg"></canvas>
+  <!-- Balloons SVGs -->
+  <div class="balloon-bg">
+    <svg class="balloon b1" viewBox="0 0 60 120">
+      <ellipse cx="30" cy="40" rx="28" ry="38" fill="#f48fb1"/>
+      <rect x="27" y="78" width="6" height="30" rx="3" fill="#ad1457"/>
+      <path d="M30 78 Q32 90 28 108" stroke="#ad1457" stroke-width="2" fill="none"/>
+    </svg>
+    <svg class="balloon b2" viewBox="0 0 60 120">
+      <ellipse cx="30" cy="40" rx="28" ry="38" fill="#80deea"/>
+      <rect x="27" y="78" width="6" height="30" rx="3" fill="#00897b"/>
+      <path d="M30 78 Q32 90 28 108" stroke="#00897b" stroke-width="2" fill="none"/>
+    </svg>
+    <svg class="balloon b3" viewBox="0 0 60 120">
+      <ellipse cx="30" cy="40" rx="28" ry="38" fill="#b39ddb"/>
+      <rect x="27" y="78" width="6" height="30" rx="3" fill="#6a1b9a"/>
+      <path d="M30 78 Q32 90 28 108" stroke="#6a1b9a" stroke-width="2" fill="none"/>
+    </svg>
+   
+ <svg class="balloon b4" viewBox="0 0 60 120">
+      <ellipse cx="30" cy="40" rx="28" ry="38" fill="#fff176"/>
+      <rect x="27" y="78" width="6" height="30" rx="3" fill="#fbc02d"/>
+      <path d="M30 78 Q32 90 28 108" stroke="#fbc02d" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+  <div class="header">
+    🎂 Happy Birthday Biswa! 🎈
+    <button class="music-btn" id="music-btn" title="Play/Pause Music">
+      <!-- Play icon SVG -->
+      <svg id="music-icon" viewBox="0 0 32 32">
+        <path d="M8 6v20l18-10z"/>
+      </svg>
+    </button>
+  </div>
+  <div class="main-container">
+    <!-- Block 1: Image Left, Text Right -->
+    <div class="block">
+      <div class="img-container">
+        <img src="c:\Users\biswaranjan_sahoo\Desktop\New folder\self help.jpg" alt="Hi Biswa..." onclick="showPopup('Hi Biswa...')">
+      </div>
+      <div class="glass-card">
+        <div class="wish">Wishing you a day as beautiful as your smile, Biswa!</div>
+        <div class="pickup">If I could rearrange the alphabet, I’d put U and I together.</div>
+      </div>
+    </div>
+    <!-- Block 2: Image Right, Text Left -->
+    <div class="block reverse">
+      <div class="img-container">
+        <img src="c:\Users\biswaranjan_sahoo\Desktop\New folder\move in silence.jpg" alt="Happy Birthday Biswa" onclick="showPopup('Happy Birthday Biswa')">
+      </div>
+      <div class="glass-card">
+        <div class="pickup">Are you a magician? Because whenever I look at you, everyone else disappears.</div>
+        <div class="wish">May your birthday be filled with laughter, love, and endless joy!</div>
+      </div>
+    </div>
+    <!-- Block 3: Image Left, Text Right -->
+    <div class="block">
+      <div class="img-container">
+        <img src="c:\Users\biswaranjan_sahoo\Desktop\New folder\car.jpg" alt="Aur batao, kesi kat rehi hai jindegi mere bina" onclick="showPopup('Aur batao, kesi kat rehi hai jindegi mere bina')">
+      </div>
+      <div class="glass-card">
+        <div class="wish">Hope this year brings you wonderful adventures and cherished memories.</div>
+        <div class="pickup">Do you have a map? I keep getting lost in your eyes.</div>
+      </div>
+    </div>
+    <!-- Block 4: Image Right, Text Left -->
+    <div class="block reverse">
+      <div class="img-container">
+        <img src="c:\Users\biswaranjan_sahoo\Desktop\New folder\gt650.jpg" alt="Happy Birthday Biswa" style="opacity:0.7;pointer-events:none;">
+      </div>
+      <div class="
+glass-card">
+        <div class="pickup">Is your name Google? Because you have everything I’ve been searching for.</div>
+        <div class="wish">You’re truly one of a kind, and I’m lucky to know you!</div>
+      </div>
+    </div>
+  </div>
+  <!-- Popup -->
+  <div class="popup-bg" id="popup-bg">
+    <div class="popup">
+      <button class="close-btn" onclick="closePopup()">&times;</button>
+      <div class="popup-text" id="popup-text"></div>
+    </div>
+  </div>
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="jine_ka_tu_sahara.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    // Overlay logic for autoplay
+    const overlay = document.getElementById('start-overlay');
+    const bgMusic = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    const musicIcon = document.getElementById('music-icon');
+    let isPlaying = false;
+
+    function playMusic() {
+      bgMusic.play();
+      isPlaying = true;
+      if(musicBtn) {
+        musicBtn.classList.add('playing');
+        musicIcon.innerHTML = '<rect x="8" y="6" width="6" height="20"/><rect x="18" y="6" width="6" height="20"/>';
+      }
+    }
+    function pauseMusic() {
+      bgMusic.pause();
+      isPlaying = false;
+      if(musicBtn) {
+        musicBtn.classList.remove('playing');
+        musicIcon.innerHTML = '<path d="M8 6v20l18-10z"/>';
+      }
+    }
+    // Overlay click to start music and hide overlay
+    function startExperience() {
+      playMusic();
+      overlay.classList.add('hide');
+      setTimeout(() => overlay.style.display = 'none', 600);
+    }
+    overlay.addEventListener('click', startExperience);
+    document.querySelector('.start-btn').addEventListener('click', startExperience);
+
+    // Music button logic
+    if(musicBtn) {
+      musicBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if(isPlaying) {
+          pauseMusic();
+        } else {
+          playMusic();
+        }
+      });
+    }
+
+    // Confetti animation
+    const canvas = document.querySelector('.confetti-bg');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = window.innerWidth;
+    let H = canvas.height = window.innerHeight;
+    let particles = [];
+    function randomColor() {
+      const colors = ['#f48fb1','#b39ddb','#80deea','#fff176','#ff8a65','#aed581'];
+      return colors[Math.floor(Math.random()*colors.length)];
+    }
+    function ConfettiParticle() {
+      this.x = Math.random()*W;
+      this.y = Math.random()*H - H;
+      this.r = Math.random()*7+4;
+      this.d = Math.random()*100;
+      this.color = randomColor();
+      this.tilt = Math.random()*10-10;
+      this.tiltAngleIncremental = (Math.random()*0.07)+.05;
+      this.tiltAngle = 0;
+      this.speed = Math.random()*2+1.5;
+    }
+    for(let i=0;i<90;i++) particles.push(new ConfettiParticle());
+    function drawConfetti(){
+      ctx.clearRect(0,0,W,H);
+      for(let i=0;i<particles.length;i++){
+        let p = particles[i];
+        ctx.beginPath();
+        ctx.lineWidth = p.r;
+        ctx.strokeStyle = p.color;
+        ctx.moveTo(p.x + p.tilt + (p.r/3), p.y);
+        ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r);
+        ctx.stroke();
+      }
+      updateConfetti();
+    }
+    function updateConfetti(){
+      for(let i=0;i<particles.length;i++){
+        let p = particles[i];
+        p.y
+ += p.speed;
+        p.tiltAngle += p.tiltAngleIncremental;
+        p.tilt = Math.sin(p.tiltAngle - (i%3)) * 15;
+        if(p.y > H){
+          p.x = Math.random()*W;
+          p.y = -10;
+          p.tilt = Math.random()*10-10;
+        }
+      }
+    }
+    setInterval(drawConfetti, 33);
+    window.addEventListener('resize', ()=>{
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    // Popup logic
+    function showPopup(text) {
+      document.getElementById('popup-text').innerText = text;
+      document.getElementById('popup-bg').classList.add('active');
+    }
+    function closePopup() {
+      document.getElementById('popup-bg').classList.remove('active');
+    }
+    document.getElementById('popup-bg').addEventListener('click', function(e){
+      if(e.target === this) closePopup();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === "Escape") closePopup();
+    });
+
+    // Fade-in blocks on scroll
+    function revealBlocks() {
+      const blocks = document.querySelectorAll('.block');
+      const trigger = window.innerHeight * 0.85;
+      blocks.forEach(block => {
+        const rect = block.getBoundingClientRect();
+        if(rect.top < trigger) {
+          block.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealBlocks);
+    window.addEventListener('load', revealBlocks);
+    window.addEventListener('resize', revealBlocks);
+  </script>
+</body>
+</html>
